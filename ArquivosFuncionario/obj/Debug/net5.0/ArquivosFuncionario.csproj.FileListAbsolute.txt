@@ -1,0 +1,16 @@
+C:\Users\015238631\Documents\Projetos.net\ArquivosFuncionario\ArquivosFuncionario\bin\Debug\net5.0\ArquivosFuncionario.exe
+C:\Users\015238631\Documents\Projetos.net\ArquivosFuncionario\ArquivosFuncionario\bin\Debug\net5.0\ArquivosFuncionario.deps.json
+C:\Users\015238631\Documents\Projetos.net\ArquivosFuncionario\ArquivosFuncionario\bin\Debug\net5.0\ArquivosFuncionario.runtimeconfig.json
+C:\Users\015238631\Documents\Projetos.net\ArquivosFuncionario\ArquivosFuncionario\bin\Debug\net5.0\ArquivosFuncionario.runtimeconfig.dev.json
+C:\Users\015238631\Documents\Projetos.net\ArquivosFuncionario\ArquivosFuncionario\bin\Debug\net5.0\ArquivosFuncionario.dll
+C:\Users\015238631\Documents\Projetos.net\ArquivosFuncionario\ArquivosFuncionario\bin\Debug\net5.0\ref\ArquivosFuncionario.dll
+C:\Users\015238631\Documents\Projetos.net\ArquivosFuncionario\ArquivosFuncionario\bin\Debug\net5.0\ArquivosFuncionario.pdb
+C:\Users\015238631\Documents\Projetos.net\ArquivosFuncionario\ArquivosFuncionario\obj\Debug\net5.0\ArquivosFuncionario.csproj.AssemblyReference.cache
+C:\Users\015238631\Documents\Projetos.net\ArquivosFuncionario\ArquivosFuncionario\obj\Debug\net5.0\ArquivosFuncionario.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\015238631\Documents\Projetos.net\ArquivosFuncionario\ArquivosFuncionario\obj\Debug\net5.0\ArquivosFuncionario.AssemblyInfoInputs.cache
+C:\Users\015238631\Documents\Projetos.net\ArquivosFuncionario\ArquivosFuncionario\obj\Debug\net5.0\ArquivosFuncionario.AssemblyInfo.cs
+C:\Users\015238631\Documents\Projetos.net\ArquivosFuncionario\ArquivosFuncionario\obj\Debug\net5.0\ArquivosFuncionario.csproj.CoreCompileInputs.cache
+C:\Users\015238631\Documents\Projetos.net\ArquivosFuncionario\ArquivosFuncionario\obj\Debug\net5.0\ArquivosFuncionario.dll
+C:\Users\015238631\Documents\Projetos.net\ArquivosFuncionario\ArquivosFuncionario\obj\Debug\net5.0\ref\ArquivosFuncionario.dll
+C:\Users\015238631\Documents\Projetos.net\ArquivosFuncionario\ArquivosFuncionario\obj\Debug\net5.0\ArquivosFuncionario.pdb
+C:\Users\015238631\Documents\Projetos.net\ArquivosFuncionario\ArquivosFuncionario\obj\Debug\net5.0\ArquivosFuncionario.genruntimeconfig.cache
