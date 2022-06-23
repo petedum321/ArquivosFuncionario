@@ -27,7 +27,7 @@ namespace ArquivosFuncionario.Entities
 
         public override string ToString()
         {
-            return $"{Id}, {Name}, {DataNascimento}, {Salario}"; 
+            return $"{Id, -13} {Name, -25} {DataNascimento,-27:dd/MM/yyyy} {Salario, -20}"; 
         }
     }
 }

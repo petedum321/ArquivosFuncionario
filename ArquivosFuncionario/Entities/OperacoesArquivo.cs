@@ -11,7 +11,7 @@ namespace ArquivosFuncionario.Entities
     {
 
         public string Endereco { get; set; }
-        public List<Funcionario> Funcionarios { get; set; } = new List<Funcionario>();
+        public List<Funcionario> Funcionarios { get; set; }
 
         public OperacoesArquivo()
         {
@@ -26,8 +26,26 @@ namespace ArquivosFuncionario.Entities
 
         public List<Funcionario> ListaFuncionarios()
         {
+           
             var dotNetFiles = Directory.EnumerateFiles(Endereco, "*.IBMDOTNET");
+
+            BuscaArquivosDotNet(dotNetFiles);
+
+            return Funcionarios;           
+        }
+
+        public void BuscaArquivosDotNet(IEnumerable<string> dotNetFiles)
+        {
             foreach (string file in dotNetFiles)
+            {
+                ObterListFuncionarios(file);
+            }
+        }
+
+        public void ObterListFuncionarios(string file)
+        {
+            
+            try
             {
                 using (StreamReader registroFuncionarios = File.OpenText(file))
                 {
@@ -36,21 +54,45 @@ namespace ArquivosFuncionario.Entities
                     {
 
                         string[] registro = registroFuncionarios.ReadLine().Split(";");
-                        Funcionario funcionario = NovoFuncionario(registro);
+                        Funcionario funcionario = NovoFuncionarioLinhaTxt(registro);
                         Funcionarios.Add(funcionario);
-
                     }
                 }
                 MoverArquivoSucesso(file);
             }
-            return Funcionarios;
+            catch (FormatException e)
+            {
+                MoverArquivoErro(file);
+                Console.WriteLine("Arquivo incompatível!");
+                Console.WriteLine();
+            }
         }
+
+        private Funcionario NovoFuncionarioLinhaTxt(string[] fileTxt)
+        {
+            Console.WriteLine();
+            int id = int.Parse(fileTxt[0]);
+            string nome = fileTxt[1];
+            DateTime dataNascimento = DateTime.Parse(fileTxt[2]);
+            decimal salario = decimal.Parse(fileTxt[3]);
+
+            Funcionario funcionarioExistente = Funcionarios.Find(x => x.Name == nome);
+
+            if (funcionarioExistente == null)
+                return new Funcionario(id, nome, dataNascimento, salario);
+            
+            else                   
+                throw new FormatException("Esse funcionário já existe!");           
+        }
+
 
         public List<string> ListarDiretorios()
         {
+            
             List<string> files = new List<string>();
+
             var allFiles = Directory.EnumerateFiles(Endereco, "*.*", SearchOption.AllDirectories);
-            Console.WriteLine("************ Arquivos do Diretório ************");
+            
             foreach (var file in allFiles)
             {
                 files.Add(Path.GetFileName(file));
@@ -60,44 +102,22 @@ namespace ArquivosFuncionario.Entities
 
         public void MoverArquivoErro(string endereco)
         {
+            Console.WriteLine();
             string fileName = Path.GetFileName(endereco);
-            string pastaError = $"{Endereco}\\ERROR\\{fileName}";
-            File.Move(endereco, pastaError, true);
+            string diretorioError = $"{Endereco}\\ERROR\\{fileName}";
+            File.Move(endereco, diretorioError, true);
+            Console.WriteLine($"{fileName} foi realocado para a pasta Error.");
         }
 
         public void MoverArquivoSucesso(string endereco)
         {
+            Console.WriteLine();
             string fileName = Path.GetFileName(endereco);
-            string pastaProcessados = $"{Endereco}\\PROCESSADO\\{fileName}\n";
+            string pastaProcessados = $"{Endereco}\\PROCESSADO\\{fileName}";
             File.Move(endereco, pastaProcessados, true);
-            
             Console.WriteLine($"{fileName} foi realocado para a pasta Processados.");
         }
-
-
-        public Funcionario NovoFuncionario(string[] dadosFuncionario)
-        {
-            int id = int.Parse(dadosFuncionario[0]);
-            string nome = dadosFuncionario[1];
-            DateTime dataNascimento = DateTime.Parse(dadosFuncionario[2]);
-            decimal salario = decimal.Parse(dadosFuncionario[3]);
-
-            return new Funcionario(id, nome, dataNascimento, salario);
-        }
-
-        public void ImprimeFuncionarios()
-        {          
-            
-            if (Funcionarios.Count != 0)
-            {
-                Console.WriteLine("Funcionarios encontrados: \n");              
-                Console.WriteLine("Id ".PadRight(10) + " Nome ".PadRight(20) + " Data de Nascimento ".PadRight(20) + " Salario ".PadRight(10));
-                foreach (Funcionario f in Funcionarios)
-                {
-                    Console.WriteLine(f);
-                }
-            }          
-        }
+      
 
     }
 }
